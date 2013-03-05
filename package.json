@@ -1,6 +1,6 @@
 {
   "name": "string-stream",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A stream that works on a string.",
   "main": "index.js",
   "scripts": {
