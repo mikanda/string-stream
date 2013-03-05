@@ -24,3 +24,4 @@ This package provides classes to work with strings in a streaming way.
 
   Not quite sure if it is necessary to implement the pipe method.  But the
   piping with the core method doesn't work.
+

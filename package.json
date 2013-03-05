@@ -19,11 +19,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "should": "~1.2.2",
-    "pipette": "~0.9.1"
-  },
   "devDependencies": {
+    "should": "~1.2.2",
+    "pipette": "~0.9.1",
     "mocha": "*"
   }
 }
