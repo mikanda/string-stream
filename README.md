@@ -1,5 +1,11 @@
 # StringStream for node.js
 
+This package provides classes to work with strings in a streaming way.
+
+## Installation
+
+  npm install string-stream
+
 ## Api
 
   - [Readable()](#readable)
@@ -8,8 +14,7 @@
 
 ### Readable()
 
-  Exports methods which implement the stream interface and operate on a
-  string.
+  Implements a readable stream interface to a string or a buffer.
 
 ### Readable.read(n:Number)
 

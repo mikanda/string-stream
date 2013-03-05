@@ -3,8 +3,7 @@ var Stream = require('stream'),
     Buffer = require('buffer').Buffer;
 
 /**
- * Exports methods which implement the stream interface and operate on a
- * string.
+ * Implements a readable stream interface to a string or a buffer.
  * @param {String} data A initial string to fill the buffer.
  */
 
