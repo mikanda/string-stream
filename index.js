@@ -19,7 +19,7 @@ function Readable(data) {
 
     this._data = new Buffer(data);
   } else {
-    this._data = data || '';
+    this._data = data;
   }
 };
 inherits(Readable, Stream);
