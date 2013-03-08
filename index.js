@@ -14,7 +14,7 @@ inherits(StringStream, Stream);
 
 StringStream.prototype.read = function (n) {
   var chunk;
-  n = n == null || n === -1 ? undefined : n;
+  n = (n == null || n === -1) ? undefined : n;
   chunk = this._data.slice(0, n);
     
   /*! All read bytes are removed from the buffer. */
