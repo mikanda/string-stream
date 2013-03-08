@@ -54,4 +54,25 @@ Readable.prototype.pipe = function (dest) {
   dest.write(this.read());
   dest.end();
 };
+
+/**
+ * The write end to a stream buffer.
+ */
+
+function Writable() {
+  Writable.super_.call(this);
+  this._data = '';
+}
+inherits(Writable, Stream);
+Writable.prototype.write = function (data) {
+  this._data += data;
+};
+Writable.prototype.end = function () {
+  this.write.apply(this, arguments);
+  this.emit('end');
+};
+Writable.prototype.toString = function () {
+  return this._data;
+};
 exports.Readable = Readable;
+exports.Writable = Writable;

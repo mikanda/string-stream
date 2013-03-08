@@ -1,4 +1,5 @@
 var Readable = require('..').Readable,
+    Writable = require('..').Writable,
     Pipe = require('pipette').Pipe;
 require('should');
 describe('Readable stream', function () {
@@ -17,5 +18,15 @@ describe('Readable stream', function () {
       }
     });
     stream.pipe(pipe.writer);
+  });
+});
+describe('Writable stream', function () {
+  it('should write the given data', function (done) {
+    var stream = new Writable();
+    stream.on('end', function () {
+      stream.toString().should.equal('Test content');
+      done();
+    });
+    stream.end('Test content');
   });
 });
