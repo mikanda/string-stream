@@ -1,32 +1,15 @@
-var Readable = require('..').Readable,
-    Writable = require('..').Writable,
+var Stream = require('..'),
     Pipe = require('pipette').Pipe;
 require('should');
-describe('Readable stream', function () {
+describe('Stream', function () {
   it('should work', function (done) {
-    var stream = new Readable('Test buffer'),
-        pipe = new Pipe();
-    stream.on('end', function (data) {
+    var readStream = new Stream('Test buffer'),
+        writeStream = new Stream();
+    writeStream.on('end', function () {
+      writeStream.toString().should.equal('Test Test buffer');
       done();
     });
-    pipe.reader.on('error', done);
-    pipe.reader.on('data', function (data) {
-      try {
-        data.toString().should.equal('Test buffer');
-      } catch (x) {
-        done(x);
-      }
-    });
-    stream.pipe(pipe.writer);
-  });
-});
-describe('Writable stream', function () {
-  it('should write the given data', function (done) {
-    var stream = new Writable();
-    stream.on('end', function () {
-      stream.toString().should.equal('Test content');
-      done();
-    });
-    stream.end('Test content');
+    writeStream.write('Test ');
+    readStream.pipe(writeStream);
   });
 });
