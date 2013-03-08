@@ -5,7 +5,7 @@ describe('Readable stream', function () {
   it('should work', function (done) {
     var stream = new Readable('Test buffer'),
         pipe = new Pipe();
-    pipe.reader.on('end', function (data) {
+    stream.on('end', function (data) {
       done();
     });
     pipe.reader.on('error', done);

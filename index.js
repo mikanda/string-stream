@@ -31,10 +31,11 @@ inherits(Readable, Stream);
 
 Readable.prototype.read = function (n) {
   var chunk;
+  n = n || -1;
 
   /*! We must take care: The buffer doesn't like .slice(0, -1) */
 
-  if (n === -1 || n == null) {
+  if (n === -1) {
     chunk = this._data;
   } else {
     chunk = this._data.slice(0, n);
