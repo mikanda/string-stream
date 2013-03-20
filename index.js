@@ -36,8 +36,10 @@ StringStream.prototype.pipe = function (dest) {
 StringStream.prototype.write = function (data) {
   this._data += data;
 };
-StringStream.prototype.end = function () {
-  this.write.apply(this, arguments);
+StringStream.prototype.end = function (data) {
+  if (data) {
+    this.write.apply(this, arguments);
+  }
   this.emit('end');
 };
 StringStream.prototype.toString = function () {
