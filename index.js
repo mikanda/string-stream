@@ -32,6 +32,7 @@ StringStream.prototype.read = function (n) {
 
 StringStream.prototype.pipe = function (dest) {
   dest.end(this.read());
+  return dest;
 };
 StringStream.prototype.write = function (data) {
   this._data += data;
