@@ -11,7 +11,7 @@ describe('Stream', function () {
       if (counter++) done();
     });
     writeStream.write('Test ');
-    readStream.pipe(writeStream);
+    readStream.pipe(writeStream).should.equal(writeStream);
     writeStream.end();
   });
 });
